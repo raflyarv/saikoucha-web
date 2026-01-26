@@ -1,0 +1,198 @@
+:root {
+  --font-body: "Forum", serif;
+  --font-heading: "Belleza", sans-serif;
+
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 34px;
+
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-loose: 1.75;
+
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+
+  /* Brand */
+  --color-primary: #3a4c25;
+  --color-secondary: #2f4f3e;
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-soft: #e6e1d8;
+  --color-bg-accent: #effad2;
+
+  /* Buttons */
+  --color-btn-primary: var(--color-primary);
+  --color-btn-secondary: #6f8f7a;
+
+  /* Text */
+  --color-text-primary: #000000;
+  --color-text-inverse: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  /* Development Mode Testing */
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-loose);
+  color: #1111;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: var(--line-tight);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--color-primary);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--space-lg) 0;
+}
+
+.section-dark h1,
+.section-dark h2 {
+  color: var(--color-text-inverse);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.01rem;
+  max-width: 60ch;
+  color: var(--color-text-primary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: var(--space-sm);
+}
+
+h2 + p,
+h3 + p {
+  margin-top: var(--space-sm);
+}
+
+.primary-section h5,
+.primary-section h3,
+.primary-section p {
+  color: var(--color-text-inverse);
+  margin: 0;
+  padding: 0;
+}
+
+.primary-section h5 {
+  color: var(--color-bg-accent);
+}
+
+.primary-section p {
+  line-height: normal;
+  color: var(--color-text-inverse);
+}
+
+.contact-info h4,
+.contact-info h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.section-dark {
+  background-color: var(--color-secondary);
+  color: var(--color-text-inverse);
+}
+
+.section-dark p {
+  color: var(--color-bg-soft);
+}
+
+.button {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.button-primary {
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-inverse);
+}
+
+.button-secondary {
+  background-color: var(--color-btn-secondary);
+  color: var(--color-text-inverse);
+}
+
+.button-primary:hover {
+  background-color: #2f3d1e;
+}
+
+.text-lead {
+  font-size: var(--text-lg);
+  line-height: var(--line-loose);
+}
+
+.text-muted {
+  color: #6666;
+}
+
+.app {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #ffffff;
+}
