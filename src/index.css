@@ -99,6 +99,8 @@ section {
   flex-direction: column;
   align-items: center;
   margin: var(--space-lg) 0;
+  padding: 0 var(--space-lg);
+  padding-bottom: var(--space-lg);
 }
 
 .section-dark h1,
@@ -152,8 +154,12 @@ h3 + p {
 }
 
 .section-dark {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   color: var(--color-text-inverse);
+}
+
+.escape-padding {
+  /* margin: 0 -; */
 }
 
 .section-dark p {
@@ -192,7 +198,7 @@ h3 + p {
 
 .app {
   max-width: 430px;
-  margin: 0 auto;
+  margin: 0 0;
   min-height: 100vh;
   background: #ffffff;
 }
