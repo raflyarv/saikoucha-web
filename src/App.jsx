@@ -13,31 +13,68 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faCopyright } from "@fortawesome/free-regular-svg-icons";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+
+import products from "./data/products.json";
+import contacts from "./data/contacts.json";
 
 function App() {
-  const position = [-6.217389635973831, 106.8027775337806];
+  const position = [-7.249093327915247, 112.7493446830677];
 
   return (
     <>
       <nav
         style={{
           position: "sticky",
-          width: "100%",
-          height: "65px",
+          top: 0,
+          zIndex: 10000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          backgroundColor: "white",
+          paddingTop: "var(--space-sm)",
         }}
+        className="full-width"
       >
-        <div></div>
+        <div
+          style={{
+            width: "25%",
+          }}
+        ></div>
 
-        <div></div>
+        <div
+          style={{
+            width: "50%",
+          }}
+        >
+          <img
+            src="src/assets/logo/original.jpg"
+            width={120}
+            height={65}
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            width: "25%",
+          }}
+        >
+          <LanguageSwitcher />
+        </div>
       </nav>
 
       <section
         style={{
           position: "relative",
-          overflow: "hidden",
           justifyContent: "center",
           height: "100vh",
+          marginTop: "-1rem",
         }}
+        className="container"
       >
         <img
           src="src/assets/pictures/welcome-bg.png"
@@ -45,9 +82,10 @@ function App() {
           height={"100%"}
           alt="Welcome Background Image"
           style={{
-            margin: "-15px 0 0 0",
+            margin: "0 0 0 0",
             position: "absolute",
             objectFit: "cover",
+            objectPosition: "center bottom",
             zIndex: 0,
           }}
         />
@@ -65,14 +103,15 @@ function App() {
 
       <section
         style={{
-          margin: "-180px 0 0 0",
-          padding: "150px var(--space-md) 75px var(--space-md)",
+          marginTop: "-15rem",
+          padding: "150px var(--space-lg) 75px var(--space-lg)",
           backgroundImage: `url("src/assets/pictures/about-bg.png")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "bottom",
           backgroundSize: "cover",
         }}
-        className="section-dark"
+        className="section-dark container"
+        id="about-us"
       >
         <SectionHeader eyebrow="About" title="Saikoucha" align="center" />
         <p>
@@ -93,32 +132,48 @@ function App() {
         </p>
       </section>
 
-      <section>
+      <section className="container" id="products">
         <SectionHeader eyebrow="Our" title="Products" />
 
-        <ProductsCard
-          productName="Nama"
-          productDescription="Premium Grade Matcha From Kagoshima & Miyazaki"
-          productImage="src\assets\matcha\nama\product.png"
-          umamiScore={2}
-          bitternessScore={4}
-          colorDepthScore={3}
-          weightGrams={30}
-          weightOunces={1.03}
-        />
+        {/* Nanti dijadiin style sendiri: Horizontal Scroll Container */}
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            overflow: "scroll",
+            padding: "20px 5px",
+            boxSizing: "border-box",
+          }}
+        >
+          {products.map((matcha) => (
+            <ProductsCard
+              key={matcha.id}
+              productName={matcha.matchaName}
+              productDescription={matcha.shortDescription}
+              productImages={matcha.productImages}
+              grade={matcha.grade}
+              umamiScore={matcha.umamiScore}
+              bitternessScore={matcha.bitternessScore}
+              colorDepthScore={matcha.colorDepth}
+              weightGrams={matcha.weightGrams}
+              weightOunces={matcha.weightOunce}
+            />
+          ))}
+        </div>
       </section>
 
       <section
         style={{
-          margin: "0 0 100px 0",
+          marginBottom: "100px",
           position: "relative",
         }}
+        className="container map-container"
       >
         <SectionHeader eyebrow="Our" title="Location" />
 
         <MapContainer
           center={position}
-          zoom={15}
+          zoom={20}
           style={{
             position: "relative",
             width: "100%",
@@ -126,6 +181,8 @@ function App() {
             zIndex: 1,
           }}
           scrollWheelZoom={false}
+          dragging={false}
+          zoomControl={false}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -146,7 +203,7 @@ function App() {
             left: "50%",
             transform: "translateX(-50%)",
 
-            width: "60%",
+            width: "65%",
             backgroundColor: "white",
             borderRadius: "var(--space-md)",
             border: "1px solid var(--color-primary)",
@@ -167,7 +224,7 @@ function App() {
                 margin: 0,
               }}
             >
-              Saikoucha Tea Bar
+              Saikoucha
             </h3>
             <h4
               style={{
@@ -175,12 +232,13 @@ function App() {
                 margin: 0,
               }}
             >
-              Jalan Lorem Ipsum No. 18 Kav. XXII
+              Jl. Kalianyar No.15-H, RT.004/RW.12, Kapasari, Kec. Genteng,
+              Surabaya, Jawa Timur 60273, Indonesia
             </h4>
           </div>
 
           <a
-            href="https://maps.app.goo.gl/nCjNFtHe8LSdJXy88"
+            href={`https://www.google.com/maps/dir/?api=1&destination=${position}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -201,13 +259,15 @@ function App() {
         </div>
       </section>
 
-      <section className="section-dark">
+      <section className="section-dark full-width" id="contact-us">
         <SectionHeader eyebrow="Our" title="Global Partners" />
 
-        <ContactCard />
+        {contacts.map((cp) => (
+          <ContactCard key={cp.id} person={cp} />
+        ))}
       </section>
 
-      <section>
+      <section className="container" id="reviews">
         <SectionHeader eyebrow="What They Say" title="About NAMA" />
 
         <ReviewCard
@@ -222,7 +282,7 @@ function App() {
         />
       </section>
 
-      <section>
+      <section className="container" id="events">
         <SectionHeader eyebrow="A Glimpse" title="of Our Events" />
 
         <div
@@ -237,10 +297,10 @@ function App() {
 
       <footer
         style={{
-          margin: "0 0 0 0",
-          height: "400px",
+          padding: "var(--space-xl) 0",
+          position: "absolute",
         }}
-        className="section-dark"
+        className="section-dark full-width"
       >
         <div
           style={{
@@ -248,21 +308,31 @@ function App() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            rowGap: "var(--space-md)",
+            rowGap: "var(--space-xl)",
           }}
         >
           <div
             style={{
               display: "flex",
+              height: "150px",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
-              margin: "0 0 var(--space-md) 0",
+              justifyContent: "space-between",
+              margin: "0 0 var(--space-sm) 0",
             }}
+            className="footer-nav"
           >
-            <p> About Us </p>
-            <p> Product </p>
-            <p> Contact Us </p>
+            <a href="#about-us">
+              <p> About Us </p>
+            </a>
+
+            <a href="#products">
+              <p> Product </p>
+            </a>
+
+            <a href="#contact-us">
+              <p> Contact Us </p>
+            </a>
           </div>
           <div
             style={{
@@ -294,6 +364,38 @@ function App() {
               size="lg"
               color="var(--color-text-inverse)"
             />
+          </div>
+
+          <div>
+            <img
+              src="src/assets/logo/white-transparent.png"
+              width="150px"
+              height="75px"
+              style={{
+                objectFit: "contain",
+              }}
+            />
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "center",
+                columnGap: "var(--space-sm)",
+              }}
+            >
+              <FontAwesomeIcon icon={faCopyright} size="2xs" />
+              <p
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  fontSize: 14,
+                }}
+              >
+                {" "}
+                Saikoucha, 2026{" "}
+              </p>
+            </div>
           </div>
         </div>
       </footer>

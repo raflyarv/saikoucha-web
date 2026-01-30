@@ -16,6 +16,7 @@
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
+  --space-xl: 32px;
 
   /* Brand */
   --color-primary: #3a4c25;
@@ -52,9 +53,9 @@ a:hover {
 
 body {
   /* Development Mode Testing */
-  max-width: 430px;
-  margin: 0 auto;
-  display: flex;
+  /* max-width: 430px; */
+  margin: 0;
+  box-sizing: border-box;
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
@@ -63,6 +64,33 @@ body {
   font-size: var(--text-base);
   line-height: var(--line-loose);
   color: #1111;
+}
+
+.container {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+  box-sizing: border-box;
+}
+
+.product-card {
+  margin-right: var(--space-md);
+  border-radius: var(--space-md);
+  padding-bottom: var(--space-lg);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.product-card:last-child {
+  margin-right: 0;
+}
+
+.map-container {
+  padding-inline: 0;
+}
+
+.full-width {
+  width: 100%;
 }
 
 h1,
@@ -99,7 +127,7 @@ section {
   flex-direction: column;
   align-items: center;
   margin: var(--space-lg) 0;
-  padding: 0 var(--space-lg);
+  padding: 0 0;
   padding-bottom: var(--space-lg);
 }
 
@@ -154,6 +182,7 @@ h3 + p {
 }
 
 .section-dark {
+  width: 100%;
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
 }
@@ -163,7 +192,7 @@ h3 + p {
 }
 
 .section-dark p {
-  color: var(--color-bg-soft);
+  color: var(--color-text-inverse);
 }
 
 .button {
@@ -201,4 +230,9 @@ h3 + p {
   margin: 0 0;
   min-height: 100vh;
   background: #ffffff;
+}
+
+.footer-nav p {
+  margin: 0;
+  padding: 0;
 }

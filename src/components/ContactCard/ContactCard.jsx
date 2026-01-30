@@ -1,22 +1,24 @@
+import "./contactcard.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 
-export default function ContactCard() {
+import { NATIONS } from "../../constant/nations";
+
+export default function ContactCard({ person }) {
+  const nation = NATIONS[person.nation];
+
+  const chatLink = `https://wa.me/${person.phone}`;
+
+  const email = person.email;
+  const subject = "Product Inquiry";
+  const body = "Hello,\nI would like to ask about your product.";
+
+  const emailLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        width: "250px",
-        minHeight: "150px",
-        rowGap: "var(--space-lg)",
-        padding: "0 var(--space-md)",
-        borderRadius: "var(--space-md)",
-        backgroundColor: "var(--color-bg-accent)",
-      }}
-    >
+    <div className="contact-container">
       <div
         style={{
           display: "flex",
@@ -24,11 +26,12 @@ export default function ContactCard() {
         }}
       >
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/500px-Flag_of_Japan.svg.png"
+          src={nation.wikiFlag}
           width={55}
           height={40}
           style={{
             objectFit: "cover",
+            borderRadius: "var(--space-sm)",
           }}
         />
 
@@ -40,8 +43,8 @@ export default function ContactCard() {
           }}
           className="contact-info"
         >
-          <h4> Japan </h4>
-          <h3> Koichi Okada </h3>
+          <h4> {nation.label} </h4>
+          <h3> {person.name} </h3>
         </div>
       </div>
 
@@ -53,6 +56,9 @@ export default function ContactCard() {
         }}
       >
         <a
+          href={chatLink}
+          target="_blank"
+          rel="nooponer noreferrer"
           style={{
             textDecoration: "none",
           }}
@@ -84,6 +90,9 @@ export default function ContactCard() {
         </a>
 
         <a
+          href={emailLink}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             textDecoration: "none",
           }}

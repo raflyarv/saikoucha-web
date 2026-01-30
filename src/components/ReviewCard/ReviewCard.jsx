@@ -20,7 +20,7 @@ export default function ReviewCard({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "0 0 var(--space-md) 0",
+        padding: "0 0 var(--space-xl) 0",
       }}
     >
       <img

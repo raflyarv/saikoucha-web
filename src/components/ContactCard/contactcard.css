@@ -1,0 +1,16 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  min-height: 150px;
+  row-gap: var(--space-lg);
+  padding: 0 var(--space-md);
+  border-radius: var(--space-md);
+  background-color: var(--color-bg-accent);
+  margin-bottom: var(--space-md);
+}
+
+.contact-container:last-child {
+  margin-bottom: 0;
+}

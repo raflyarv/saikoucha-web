@@ -1,0 +1,44 @@
+[
+  {
+    "id": "namaMatcha",
+    "matchaName": "Nama",
+    "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
+    "productImages": ["src/assets/matcha/nama/product.png"],
+    "weightGrams": 30,
+    "weightOunce": 1.03,
+    "grade": "Premium",
+    "umamiScore": 3,
+    "bitternessScore": 5,
+    "colorDepth": 5,
+    "flavor": ["Seaweed", "Chestnut", "Kombucha"],
+    "shopeeLink": "⁠https://id.shp.ee/zwpFrid"
+  },
+  {
+    "id": "kokuMatcha",
+    "matchaName": "Koku",
+    "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
+    "productImages": ["src/assets/matcha/koku/product.png"],
+    "weightGrams": 30,
+    "weightOunce": 1.03,
+    "grade": "Premium",
+    "umamiScore": 1,
+    "bitternessScore": 4,
+    "colorDepth": 5,
+    "flavor": ["Seaweed", "Chestnut", "Kombucha"],
+    "shopeeLink": "https://id.shp.ee/HndhG1k"
+  },
+  {
+    "id": "kaoriMatcha",
+    "matchaName": "Kaori",
+    "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
+    "productImages": ["src/assets/matcha/kaori/product.png"],
+    "weightGrams": 30,
+    "weightOunce": 1.03,
+    "grade": "Premium",
+    "umamiScore": 4,
+    "bitternessScore": 2,
+    "colorDepth": 5,
+    "flavor": ["Seaweed", "Chestnut", "Kombucha"],
+    "shopeeLink": "https://id.shp.ee/hw6P7UU"
+  }
+]
