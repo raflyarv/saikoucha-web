@@ -27,6 +27,8 @@
   --color-bg-soft: #e6e1d8;
   --color-bg-accent: #effad2;
 
+  --opacity-50-bg-primary: #29371b84;
+
   /* Buttons */
   --color-btn-primary: var(--color-primary);
   --color-btn-secondary: #6f8f7a;
@@ -39,6 +41,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -187,10 +193,6 @@ h3 + p {
   color: var(--color-text-inverse);
 }
 
-.escape-padding {
-  /* margin: 0 -; */
-}
-
 .section-dark p {
   color: var(--color-text-inverse);
 }
@@ -235,4 +237,8 @@ h3 + p {
 .footer-nav p {
   margin: 0;
   padding: 0;
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
 }

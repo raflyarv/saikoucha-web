@@ -3,23 +3,28 @@ import ContactCard from "./components/ContactCard";
 import ProductsCard from "./components/ProductsCard";
 import ReviewCard from "./components/ReviewCard";
 import SectionHeader from "./components/SectionHeader";
+import SocialIcons from "./components/SocialIcons";
+import SmoothScrollLink from "./components/SmoothScrollLink";
 
 import { MapContainer, TileLayer, Marker, Popup, Pane } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faTiktok,
-  faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
 import products from "./data/products.json";
 import contacts from "./data/contacts.json";
+import reviews from "./data/reviews.json";
+import socials from "./data/socials.json";
+
+import { useTranslation } from "react-i18next";
+import ProductHorizontalNav from "./containers/ProductsHorizontalNav";
+import WelcomeHeader from "./components/WelcomeHeader";
 
 function App() {
+  const { t } = useTranslation();
+
   const position = [-7.249093327915247, 112.7493446830677];
 
   return (
@@ -90,15 +95,7 @@ function App() {
           }}
         />
 
-        <h2
-          style={{
-            color: "var(--color-text-inverse)",
-            zIndex: 100,
-            textShadow: `0 0 20px 0 rgba(0, 0, 0, 0.75);`,
-          }}
-        >
-          Selamat Datang
-        </h2>
+        <WelcomeHeader />
       </section>
 
       <section
@@ -113,52 +110,51 @@ function App() {
         className="section-dark container"
         id="about-us"
       >
-        <SectionHeader eyebrow="About" title="Saikoucha" align="center" />
-        <p>
-          Based in Indonesia and connected to various cities in Japan, we're a
-          team dedicated to sharing the true essence of Japanese matcha with the
-          world. Our mission is simple; providing premium and authentic matcha
-          to be accessible and understood by everyone.
-        </p>
-        <p>
-          As global demand rises, we work directly with Japanese farmers and
-          trusted partners to offer high-quality matcha at a fair price. More
-          than just a supplier, we aim to educate, support, and build a
-          community that values reliability and cultural connection.
-        </p>
-        <p>
-          Whether you're discovering matcha or searching for a reliable partner,
-          we're here to guide you every step of the way!
-        </p>
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            src="src\assets\logo\white-transparent.png"
+            alt="Saikoucha Logo"
+            width={180}
+            height={125}
+            style={{
+              objectFit: "cover",
+              position: "absolute",
+              opacity: "40%",
+            }}
+          />
+        </div>
+        <SectionHeader
+          eyebrow={t("header.about.eyebrow")}
+          title={t("header.about.title")}
+          align="center"
+        />
+        <p>{t("content.about.paragraph.first")}</p>
+        <p>{t("content.about.paragraph.second")}</p>
+        <p>{t("content.about.paragraph.third")}</p>
       </section>
 
       <section className="container" id="products">
-        <SectionHeader eyebrow="Our" title="Products" />
+        <SectionHeader
+          eyebrow={t("header.product.eyebrow")}
+          title={t("header.product.title")}
+        />
 
         {/* Nanti dijadiin style sendiri: Horizontal Scroll Container */}
         <div
           style={{
             width: "100%",
             display: "flex",
-            overflow: "scroll",
             padding: "20px 5px",
             boxSizing: "border-box",
           }}
         >
-          {products.map((matcha) => (
-            <ProductsCard
-              key={matcha.id}
-              productName={matcha.matchaName}
-              productDescription={matcha.shortDescription}
-              productImages={matcha.productImages}
-              grade={matcha.grade}
-              umamiScore={matcha.umamiScore}
-              bitternessScore={matcha.bitternessScore}
-              colorDepthScore={matcha.colorDepth}
-              weightGrams={matcha.weightGrams}
-              weightOunces={matcha.weightOunce}
-            />
-          ))}
+          <ProductHorizontalNav products={products} />
         </div>
       </section>
 
@@ -169,7 +165,10 @@ function App() {
         }}
         className="container map-container"
       >
-        <SectionHeader eyebrow="Our" title="Location" />
+        <SectionHeader
+          eyebrow={t("header.location.eyebrow")}
+          title={t("header.location.title")}
+        />
 
         <MapContainer
           center={position}
@@ -253,14 +252,17 @@ function App() {
                 borderRadius: "20px",
               }}
             >
-              Get Direction
+              {t("common.direction.text")}
             </div>
           </a>
         </div>
       </section>
 
       <section className="section-dark full-width" id="contact-us">
-        <SectionHeader eyebrow="Our" title="Global Partners" />
+        <SectionHeader
+          eyebrow={t("header.cp.eyebrow")}
+          title={t("header.cp.title")}
+        />
 
         {contacts.map((cp) => (
           <ContactCard key={cp.id} person={cp} />
@@ -268,31 +270,125 @@ function App() {
       </section>
 
       <section className="container" id="reviews">
-        <SectionHeader eyebrow="What They Say" title="About NAMA" />
-
-        <ReviewCard
-          productName={"NAMA Matcha"}
-          productSubName={"Yummerssssssss"}
-          review={
-            "Lorem ipsum dolor sit amet consectetur. Quis at ultricies facilisis consequat sit vulputate vel arcu non. Feugiat quis tortor urna"
-          }
-          starRating={3}
-          userImg={"src/assets/profile-pic.png"}
-          userName={"Maysilee Donner"}
+        <SectionHeader
+          eyebrow={t("header.review.eyebrow")}
+          title={t("header.review.title")}
         />
+
+        {reviews.map((review, i) => (
+          <ReviewCard
+            key={`review-${i}`}
+            productName={review.productName}
+            productSubName={review.productSubtitle}
+            productImage={review.productImg}
+            review={review.review}
+            starRating={review.rating}
+            userImg={review.reviewerImg}
+            userName={review.reviewer}
+          />
+        ))}
       </section>
 
-      <section className="container" id="events">
-        <SectionHeader eyebrow="A Glimpse" title="of Our Events" />
+      <section className="full-width" id="events">
+        <SectionHeader
+          eyebrow={t("header.events.eyebrow")}
+          title={t("header.events.title")}
+        />
 
-        <div
+        <a
+          href="https://www.instagram.com/saikoucha?igsh=MTBycjU4eTVyenpkMQ=="
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            width: "300px",
-            height: "375px",
-            backgroundColor: "var(--color-primary)",
+            position: "relative",
+            width: "90%",
+            height: "450px",
             borderRadius: "var(--space-md)",
+            cursor: "pointer",
           }}
-        ></div>
+        >
+          <div
+            style={{
+              position: "absolute",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              height: "100%",
+              zIndex: 3,
+              backgroundColor: "var(--opacity-50-bg-primary)",
+              color: "white",
+              borderRadius: "var(--space-md)",
+            }}
+          >
+            <FontAwesomeIcon icon={faInstagram} size="xl" />
+            <p
+              style={{
+                padding: 0,
+                margin: 0,
+                color: "var(--color-text-inverse)",
+              }}
+            >
+              Check out our Instagram !
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              height: "100%",
+              columnGap: "var(--space-sm)",
+              alignItems: "stretch",
+            }}
+          >
+            <div
+              style={{
+                width: "50%",
+                display: "flex",
+                flexDirection: "column",
+                rowGap: "var(--space-sm)",
+                alignItems: "stretch",
+                minHeight: 0,
+              }}
+            >
+              <img
+                alt="Photo 1"
+                src="src/assets/pictures/single-product.jpg"
+                style={{
+                  width: "100%",
+                  minHeight: 0,
+
+                  flex: 1,
+                  objectFit: "cover",
+                  borderRadius: "var(--space-md) 0 0 0",
+                }}
+              />
+
+              <img
+                alt="Photo 2"
+                src="src/assets/pictures/bazaar.jpg"
+                style={{
+                  width: "100%",
+                  minHeight: 0,
+                  flex: 1,
+                  objectFit: "cover",
+                  borderRadius: "0 0 0 var(--space-md)",
+                }}
+              />
+            </div>
+            <img
+              alt="Photo 2"
+              src="src/assets/pictures/showcase.jpg"
+              width={"50%"}
+              height={"100%"}
+              style={{
+                objectFit: "cover",
+                borderRadius: "0 var(--space-md) var(--space-md) 0 ",
+              }}
+            />
+          </div>
+        </a>
       </section>
 
       <footer
@@ -322,17 +418,17 @@ function App() {
             }}
             className="footer-nav"
           >
-            <a href="#about-us">
-              <p> About Us </p>
-            </a>
+            <SmoothScrollLink to="about-us">
+              <p>{t("footer.about.text")}</p>
+            </SmoothScrollLink>
 
-            <a href="#products">
-              <p> Product </p>
-            </a>
+            <SmoothScrollLink to="products">
+              <p>{t("footer.product.text")}</p>
+            </SmoothScrollLink>
 
-            <a href="#contact-us">
-              <p> Contact Us </p>
-            </a>
+            <SmoothScrollLink to="contact-us">
+              <p>{t("footer.contact.text")}</p>
+            </SmoothScrollLink>
           </div>
           <div
             style={{
@@ -342,28 +438,7 @@ function App() {
               alignItems: "center",
             }}
           >
-            <FontAwesomeIcon
-              icon={faTiktok}
-              size="md"
-              color="var(--color-text-inverse)"
-            />
-            <FontAwesomeIcon
-              icon={faInstagram}
-              size="lg"
-              color="var(--color-text-inverse)"
-            />
-
-            <FontAwesomeIcon
-              icon={faWhatsapp}
-              size="lg"
-              color="var(--color-text-inverse)"
-            />
-
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              size="lg"
-              color="var(--color-text-inverse)"
-            />
+            <SocialIcons socials={socials} size="xl" />
           </div>
 
           <div>

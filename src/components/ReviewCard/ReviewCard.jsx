@@ -1,10 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faImage,
+  faQuoteLeft,
+  faQuoteRight,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import StarRating from "../StarRating";
 
 export default function ReviewCard({
   productName,
   productSubName,
+  productImage,
   review,
   starRating,
   userImg,
@@ -23,15 +29,31 @@ export default function ReviewCard({
         padding: "0 0 var(--space-xl) 0",
       }}
     >
-      <img
-        src="src/assets/matcha/nama/product_placement.jpg"
-        width={"100%"}
-        height={280}
-        style={{
-          objectFit: "cover",
-          borderRadius: "var(--space-md) var(--space-md) 0 0",
-        }}
-      />
+      {productImage !== "" && !productImage ? (
+        <img
+          src="src/assets/matcha/nama/product_placement.jpg"
+          width={"100%"}
+          height={280}
+          style={{
+            objectFit: "cover",
+            borderRadius: "var(--space-md) var(--space-md) 0 0",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: 280,
+            backgroundColor: "var(--color-secondary)",
+            borderRadius: "var(--space-md) var(--space-md) 0 0",
+          }}
+        >
+          <FontAwesomeIcon icon={faImage} color="white" size="xl" />
+        </div>
+      )}
 
       <div
         style={{
@@ -60,7 +82,7 @@ export default function ReviewCard({
             color="var(--color-text-inverse)"
             style={{
               position: "absolute",
-              margin: "-10px 0 0 5px",
+              margin: "-25px 0 0 5px",
               opacity: "50%",
             }}
           />
@@ -71,7 +93,7 @@ export default function ReviewCard({
             color="var(--color-text-inverse)"
             style={{
               position: "absolute",
-              margin: "0 10px -10px 0",
+              margin: "0 10px -20px 0",
               right: "0",
               bottom: "0",
               opacity: "50%",
@@ -89,15 +111,32 @@ export default function ReviewCard({
         }}
         className="primary-section"
       >
-        <img
-          src={userImg}
-          width={24}
-          height={24}
-          style={{
-            objectFit: "cover",
-            borderRadius: "100%",
-          }}
-        />
+        {userImg !== "" && !userImg ? (
+          <img
+            src={userImg}
+            width={24}
+            height={24}
+            style={{
+              objectFit: "cover",
+              borderRadius: "100%",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: 24,
+              height: 24,
+              backgroundColor: "white",
+              borderRadius: "100%",
+            }}
+          >
+            <FontAwesomeIcon
+              icon={faUser}
+              color="var(--color-primary)"
+              size="xs"
+            />
+          </div>
+        )}
 
         <p> {userName} </p>
       </div>

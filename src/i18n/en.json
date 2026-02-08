@@ -1,0 +1,29 @@
+{
+  "header.about.eyebrow": "About",
+  "header.about.title": "Saikoucha",
+  "content.about.paragraph.first": "Based in Indonesia and connected to various cities in Japan, we're a team dedicated to sharing the true essence of Japanese matcha with the world. Our mission is simple; providing premium and authentic matcha to be accessible and understood by everyone.",
+  "content.about.paragraph.second": "As global demand rises, we work directly with Japanese farmers and trusted partners to offer high-quality matcha at a fair price. More than just a supplier, we aim to educate, support, and build a community that values reliability and cultural connection.",
+  "content.about.paragraph.third": "Whether you're discovering matcha or searching for a reliable partner, we're here to guide you every step of the way!",
+
+  "header.product.eyebrow": "Our",
+  "header.product.title": "Products",
+
+  "header.location.eyebrow": "Our",
+  "header.location.title": "Location",
+
+  "header.cp.eyebrow": "Our",
+  "header.cp.title": "Global Partners",
+
+  "header.review.eyebrow": "What They Say",
+  "header.review.title": "About Saikoucha",
+
+  "header.events.eyebrow": "A Glimpse of",
+  "header.events.title": "Our Events",
+
+  "footer.about.text": "About Us",
+  "footer.product.text": "Products",
+  "footer.contact.text": "Contact Us",
+
+  "common.availability.text": "Available on",
+  "common.direction.text": "Get Direction"
+}

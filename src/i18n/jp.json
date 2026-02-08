@@ -1,0 +1,32 @@
+{
+  "header.about.eyebrow": "私たちについて",
+  "header.about.title": "Saikoucha",
+
+  "content.about.paragraph.first": "インドネシアを拠点とし、日本のさまざまな都市とつながりながら、私たちは日本の本物の抹茶の真髄を世界に届けるチームです。誰もが手に取り、理解できるプレミアムで本格的な抹茶を提供することが、私たちのシンプルな使命です。",
+
+  "content.about.paragraph.second": "世界的な需要が高まる中、私たちは日本の農家や信頼できるパートナーと直接連携し、高品質な抹茶を適正な価格で提供しています。単なる供給業者ではなく、教育と支援を通じて、信頼性と文化的なつながりを大切にするコミュニティの構築を目指しています。",
+
+  "content.about.paragraph.third": "抹茶との出会いが初めての方も、信頼できるパートナーをお探しの方も、私たちは一歩一歩、あなたを導きます。",
+
+  "header.product.eyebrow": "私たちの",
+  "header.product.title": "製品",
+
+  "header.location.eyebrow": "私たちの",
+  "header.location.title": "所在地",
+
+  "header.cp.eyebrow": "私たちの",
+  "header.cp.title": "グローバルパートナー",
+
+  "header.review.eyebrow": "お客様の声",
+  "header.review.title": "Saikouchaについて",
+
+  "header.events.eyebrow": "イベントの様子",
+  "header.events.title": "私たちのイベント",
+
+  "footer.about.text": "会社概要",
+  "footer.product.text": "製品",
+  "footer.contact.text": "お問い合わせ",
+
+  "common.direction.text": "「道順を見る」",
+  "common.availability.text": "入手可能な場所"
+}

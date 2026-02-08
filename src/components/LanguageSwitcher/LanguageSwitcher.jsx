@@ -2,6 +2,8 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 
+import i18n from "i18next";
+
 const languages = [
   {
     code: "en",
@@ -41,7 +43,10 @@ export default function LanguageSwitcher() {
   }, []);
 
   useEffect(() => {
+    if (!selected.code) return;
+
     localStorage.setItem("language", selected.code);
+    i18n.changeLanguage(selected.code);
   }, [selected]);
 
   return (

@@ -1,4 +1,8 @@
 import BulletRating from "../BulletRating";
+import ProductImageCarousel from "../../containers/ProductImageCarousel";
+import SmoothScrollLink from "../SmoothScrollLink";
+
+import { useTranslation } from "react-i18next";
 
 export default function ProductsCard({
   productName,
@@ -12,34 +16,19 @@ export default function ProductsCard({
   weightOunces,
 }) {
   const getSavedCode = localStorage.getItem("language");
+  const { t } = useTranslation();
 
   return (
     <div
       style={{
-        width: "100%",
+        minWidth: "320px",
+        maxWidth: "350px",
+        height: "100%",
+        overflow: "hidden",
       }}
       className="product-card"
     >
-      <div
-        style={{
-          display: "flex",
-          overflow: "scroll",
-        }}
-      >
-        {productImages.map((img, i) => (
-          <img
-            key={`${productName}-${i}`}
-            src={img}
-            alt={`${productName}-${i}`}
-            style={{
-              width: "300px",
-              height: "300px",
-              objectFit: "cover",
-              marginBottom: "var(--space-md)",
-            }}
-          />
-        ))}
-      </div>
+      <ProductImageCarousel images={productImages} productName={productName} />
 
       <div
         style={{
@@ -205,8 +194,7 @@ export default function ProductsCard({
             margin: "var(--space-md) 0 0 0",
           }}
         >
-          {" "}
-          Available on:{" "}
+          {t("common.availability.text")}
         </p>
 
         {getSavedCode === "id" ? (
@@ -263,8 +251,9 @@ export default function ProductsCard({
                 color: "var(--color-primary)",
               }}
             >
-              {" "}
-              Contact Us{" "}
+              <SmoothScrollLink to="contact-us">
+                <p>{t("footer.contact.text")}</p>
+              </SmoothScrollLink>
             </p>
           </a>
         )}

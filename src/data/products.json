@@ -3,7 +3,10 @@
     "id": "namaMatcha",
     "matchaName": "Nama",
     "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
-    "productImages": ["src/assets/matcha/nama/product.png"],
+    "productImages": [
+      "src/assets/matcha/nama/product.png",
+      "src/assets/pictures/single-product.jpg"
+    ],
     "weightGrams": 30,
     "weightOunce": 1.03,
     "grade": "Premium",
@@ -16,7 +19,7 @@
   {
     "id": "kokuMatcha",
     "matchaName": "Koku",
-    "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
+    "shortDescription": "Culinary Grade Matcha from Shizuoka ",
     "productImages": ["src/assets/matcha/koku/product.png"],
     "weightGrams": 30,
     "weightOunce": 1.03,
@@ -30,7 +33,7 @@
   {
     "id": "kaoriMatcha",
     "matchaName": "Kaori",
-    "shortDescription": "Premium Grade Matcha From Kagoshima & Miyazaki",
+    "shortDescription": " Ceremonial Grade Roasted Green Tea from Shizuoka",
     "productImages": ["src/assets/matcha/kaori/product.png"],
     "weightGrams": 30,
     "weightOunce": 1.03,
