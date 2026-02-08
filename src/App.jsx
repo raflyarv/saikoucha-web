@@ -83,6 +83,7 @@ function App() {
       >
         <img
           src="/assets/pictures/welcome-bg.png"
+          loading="lazy"
           width={"100%"}
           height={"100%"}
           alt="Welcome Background Image"
@@ -355,6 +356,7 @@ function App() {
               <img
                 alt="Photo 1"
                 src="/assets/pictures/single-product.jpg"
+                loading="lazy"
                 style={{
                   width: "100%",
                   minHeight: 0,
@@ -368,6 +370,7 @@ function App() {
               <img
                 alt="Photo 2"
                 src="/assets/pictures/bazaar.jpg"
+                loading="lazy"
                 style={{
                   width: "100%",
                   minHeight: 0,
@@ -380,6 +383,7 @@ function App() {
             <img
               alt="Photo 2"
               src="/assets/pictures/showcase.jpg"
+              loading="lazy"
               width={"50%"}
               height={"100%"}
               style={{

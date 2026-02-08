@@ -32,6 +32,7 @@ export default function ReviewCard({
       {productImage !== "" && !productImage ? (
         <img
           src="/assets/matcha/nama/product_placement.jpg"
+          loading="lazy"
           width={"100%"}
           height={280}
           style={{
@@ -114,8 +115,10 @@ export default function ReviewCard({
         {userImg !== "" && !userImg ? (
           <img
             src={userImg}
+            alt={`${userName}-profile-pic`}
             width={24}
             height={24}
+            loading="lazy"
             style={{
               objectFit: "cover",
               borderRadius: "100%",

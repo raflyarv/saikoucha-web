@@ -59,6 +59,7 @@ export default function ProductImageCarousel({ images, productName }) {
             key={`${productName}-${i}`}
             src={img}
             alt={`${productName}-${i}`}
+            loading="lazy"
             style={{
               width: "100%",
               height: "350px",
