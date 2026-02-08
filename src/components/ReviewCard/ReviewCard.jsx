@@ -31,7 +31,7 @@ export default function ReviewCard({
     >
       {productImage !== "" && !productImage ? (
         <img
-          src="src/assets/matcha/nama/product_placement.jpg"
+          src="/assets/matcha/nama/product_placement.jpg"
           width={"100%"}
           height={280}
           style={{

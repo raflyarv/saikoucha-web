@@ -54,7 +54,7 @@ function App() {
           }}
         >
           <img
-            src="src/assets/logo/original.jpg"
+            src={"/assets/logo/original.jpg"}
             width={120}
             height={65}
             style={{
@@ -82,7 +82,7 @@ function App() {
         className="container"
       >
         <img
-          src="src/assets/pictures/welcome-bg.png"
+          src="/assets/pictures/welcome-bg.png"
           width={"100%"}
           height={"100%"}
           alt="Welcome Background Image"
@@ -102,7 +102,7 @@ function App() {
         style={{
           marginTop: "-15rem",
           padding: "150px var(--space-lg) 75px var(--space-lg)",
-          backgroundImage: `url("src/assets/pictures/about-bg.png")`,
+          backgroundImage: `url("/assets/pictures/about-bg.png")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "bottom",
           backgroundSize: "cover",
@@ -118,7 +118,7 @@ function App() {
           }}
         >
           <img
-            src="src\assets\logo\white-transparent.png"
+            src="\assets\logo\white-transparent.png"
             alt="Saikoucha Logo"
             width={180}
             height={125}
@@ -354,7 +354,7 @@ function App() {
             >
               <img
                 alt="Photo 1"
-                src="src/assets/pictures/single-product.jpg"
+                src="/assets/pictures/single-product.jpg"
                 style={{
                   width: "100%",
                   minHeight: 0,
@@ -367,7 +367,7 @@ function App() {
 
               <img
                 alt="Photo 2"
-                src="src/assets/pictures/bazaar.jpg"
+                src="/assets/pictures/bazaar.jpg"
                 style={{
                   width: "100%",
                   minHeight: 0,
@@ -379,7 +379,7 @@ function App() {
             </div>
             <img
               alt="Photo 2"
-              src="src/assets/pictures/showcase.jpg"
+              src="/assets/pictures/showcase.jpg"
               width={"50%"}
               height={"100%"}
               style={{
@@ -443,7 +443,7 @@ function App() {
 
           <div>
             <img
-              src="src/assets/logo/white-transparent.png"
+              src="/assets/logo/white-transparent.png"
               width="150px"
               height="75px"
               style={{

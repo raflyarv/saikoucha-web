@@ -222,7 +222,7 @@ export default function ProductsCard({
                 }}
               >
                 <img
-                  src="src\assets\socials\shopee.png"
+                  src="\assets\socials\shopee.png"
                   alt="Shopee Icon"
                   width={32}
                   height={32}
