@@ -69,7 +69,7 @@ export default function ReviewHorizontalNav({ reviews }) {
         onClick={prev}
         style={{
           position: "absolute",
-          left: -20,
+          left: -15,
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 2,
@@ -86,7 +86,7 @@ export default function ReviewHorizontalNav({ reviews }) {
         onClick={next}
         style={{
           position: "absolute",
-          right: -20,
+          right: -15,
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 2,
