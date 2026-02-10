@@ -1,12 +1,32 @@
 [
   {
-    "id": "",
+    "id": "yasmin-01-review",
     "productName": "Nama Matcha",
     "productSubtitle": "Premium Grade Matcha",
-    "productImg": "",
+    "productImg": "/assets/reviews/yasmin/product-picture.jpg",
     "review": "Perfectly balanced bitterness, just like real Japanese matcha! I mix it with milk  or whisk it with cream when I want it sweet!",
-    "reviewer": "Yasmin Balahmar ",
-    "reviewerImg": "",
+    "reviewer": "Yasmin Balahmar",
+    "reviewerImg": "/assets/reviews/yasmin/yasmin.jpg",
     "rating": 4.5
+  },
+  {
+    "id": "chu-02-review",
+    "productName": "Kaori Hojicha",
+    "productSubtitle": "Ceremonial Grade Hojicha ",
+    "productImg": "/assets/reviews/chu/product-picture.JPG",
+    "review": "程よい苦さと旨さがよかった！牛乳とかと混ぜでラテにしたら相性抜群",
+    "reviewer": "雛",
+    "reviewerImg": "/assets/reviews/chu/chu.png",
+    "rating": 5
+  },
+  {
+    "id": "naufal-02-review",
+    "productName": "Koku Matcha",
+    "productSubtitle": "Culinary Grade Matcha",
+    "productImg": "/assets/reviews/naufal/product-picture.jpeg",
+    "review": "Pakai Koku Matcha buat burnt cheesecake dan hasilnya sempurna– Warna hijau pekat, rasa pahitnya pas dan balance dengan manisnya cake!",
+    "reviewer": "Naufal Ammar",
+    "reviewerImg": "/assets/reviews/naufal/naufal.png",
+    "rating": 5
   }
 ]

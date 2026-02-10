@@ -4,6 +4,8 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductImageCarousel({ images, productName }) {
   const containerRef = useRef(null);
+  const rafRef = useRef(null);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const total = images.length;
 
@@ -17,11 +19,12 @@ export default function ProductImageCarousel({ images, productName }) {
     const container = containerRef.current;
     if (!container) return;
 
-    const image = container.children[index];
-    const containerWidth = container.offsetWidth;
-    const imageWidth = image.offsetWidth;
+    const imageWidth = getImageWidth();
+    if (!imageWidth) return;
 
-    const scrollLeft = image.offsetLeft - containerWidth / 2 + imageWidth / 2;
+    const containerWidth = container.offsetWidth;
+
+    const scrollLeft = index * imageWidth + imageWidth / 2 - containerWidth / 2;
 
     container.scrollTo({
       left: scrollLeft,
@@ -32,13 +35,26 @@ export default function ProductImageCarousel({ images, productName }) {
   };
 
   const handleScroll = () => {
-    const container = containerRef.current;
-    if (!container) return;
+    if (rafRef.current) return;
 
-    const imageWidth = getImageWidth();
-    const index = Math.round(container.scrollLeft / imageWidth);
+    rafRef.current = requestAnimationFrame(() => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    setActiveIndex(Math.max(0, Math.min(index, total - 1)));
+      const imageWidth = getImageWidth();
+      if (!imageWidth) return;
+
+      // ✅ CENTER-BASED calculation
+      const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+
+      const index = Math.round((containerCenter - imageWidth / 2) / imageWidth);
+
+      const clampedIndex = Math.max(0, Math.min(index, total - 1));
+
+      setActiveIndex((prev) => (prev !== clampedIndex ? clampedIndex : prev));
+
+      rafRef.current = null;
+    });
   };
 
   return (
@@ -46,13 +62,13 @@ export default function ProductImageCarousel({ images, productName }) {
       <div
         ref={containerRef}
         onScroll={handleScroll}
+        className="invisible-scrollbar"
         style={{
           display: "flex",
           overflowX: "scroll",
-          marginBottom: "var(--space-md)",
           scrollSnapType: "x mandatory",
+          marginBottom: "var(--space-md)",
         }}
-        className="invisible-scrollbar"
       >
         {images.map((img, i) => (
           <img
@@ -64,14 +80,15 @@ export default function ProductImageCarousel({ images, productName }) {
               width: "100%",
               height: "350px",
               objectFit: "cover",
-              marginBottom: "var(--space-md)",
               borderRadius: "var(--space-sm)",
               scrollSnapAlign: "center",
+              scrollSnapStop: "always",
               flexShrink: 0,
             }}
           />
         ))}
       </div>
+
       <div
         style={{
           display: "flex",
@@ -83,9 +100,9 @@ export default function ProductImageCarousel({ images, productName }) {
         {images.map((_, index) => (
           <FontAwesomeIcon
             key={index}
-            onClick={() => scrollToIndex(index)}
             icon={faCircle}
             size="2xs"
+            onClick={() => scrollToIndex(index)}
             style={{
               cursor: "pointer",
               color:

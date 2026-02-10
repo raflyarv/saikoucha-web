@@ -29,9 +29,9 @@ export default function ReviewCard({
         padding: "0 0 var(--space-xl) 0",
       }}
     >
-      {productImage !== "" && !productImage ? (
+      {productImage !== "" && productImage ? (
         <img
-          src="/assets/matcha/nama/product_placement.jpg"
+          src={productImage}
           loading="lazy"
           width={"100%"}
           height={280}
@@ -112,7 +112,7 @@ export default function ReviewCard({
         }}
         className="primary-section"
       >
-        {userImg !== "" && !userImg ? (
+        {userImg !== "" && userImg ? (
           <img
             src={userImg}
             alt={`${userName}-profile-pic`}

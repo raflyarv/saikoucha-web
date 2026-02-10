@@ -10,7 +10,14 @@
     "id": "sho-id",
     "name": "Marcellino Sho",
     "phone": "6285749222636",
-    "email": "raflyarvmedia@gmail.com",
+    "email": "marcellinosho@gmail.com",
     "nation": "indonesia"
+  },
+  {
+    "id": "koichi-au",
+    "name": "Koichi Okada",
+    "phone": "61405504940",
+    "email": "koichiokada15@gmail.com",
+    "nation": "australia"
   }
 ]

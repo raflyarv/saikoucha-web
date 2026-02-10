@@ -21,6 +21,21 @@ import socials from "./data/socials.json";
 import { useTranslation } from "react-i18next";
 import ProductHorizontalNav from "./containers/ProductsHorizontalNav";
 import WelcomeHeader from "./components/WelcomeHeader";
+import ReviewHorizontalNav from "./containers/ReviewHorizontalNav";
+
+import L from "leaflet";
+
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 function App() {
   const { t } = useTranslation();
@@ -275,19 +290,7 @@ function App() {
           eyebrow={t("header.review.eyebrow")}
           title={t("header.review.title")}
         />
-
-        {reviews.map((review, i) => (
-          <ReviewCard
-            key={`review-${i}`}
-            productName={review.productName}
-            productSubName={review.productSubtitle}
-            productImage={review.productImg}
-            review={review.review}
-            starRating={review.rating}
-            userImg={review.reviewerImg}
-            userName={review.reviewer}
-          />
-        ))}
+        <ReviewHorizontalNav reviews={reviews} />
       </section>
 
       <section className="full-width" id="events">
@@ -355,7 +358,7 @@ function App() {
             >
               <img
                 alt="Photo 1"
-                src="/assets/pictures/single-product.jpg"
+                src="/assets/events/event-1.jpg"
                 loading="lazy"
                 style={{
                   width: "100%",
@@ -369,7 +372,7 @@ function App() {
 
               <img
                 alt="Photo 2"
-                src="/assets/pictures/bazaar.jpg"
+                src="/assets/events/event-2.jpg"
                 loading="lazy"
                 style={{
                   width: "100%",
@@ -382,7 +385,7 @@ function App() {
             </div>
             <img
               alt="Photo 2"
-              src="/assets/pictures/showcase.jpg"
+              src="/assets/events/event-3.jpg"
               loading="lazy"
               width={"50%"}
               height={"100%"}
