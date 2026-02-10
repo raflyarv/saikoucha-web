@@ -20,13 +20,13 @@ export default function ReviewCard({
     <div
       style={{
         width: "290px",
-        minHeight: "480px",
+        height: "100%",
         backgroundColor: "var(--color-primary)",
         borderRadius: "var(--space-md)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "0 0 var(--space-xl) 0",
+        padding: "0 0 var(--space-md) 0",
       }}
     >
       {productImage !== "" && productImage ? (
@@ -67,6 +67,12 @@ export default function ReviewCard({
         className="primary-section"
       >
         <StarRating value={starRating} max={5} />
+
+        <div
+          style={{
+            margin: "var(--space-sm) 0",
+          }}
+        ></div>
         <h3> {productName} </h3>
         <h5> {productSubName} </h5>
 
@@ -74,7 +80,7 @@ export default function ReviewCard({
           style={{
             display: "flex",
             position: "relative",
-            margin: "var(--space-md) 0 0 0",
+            margin: "var(--space-md) 0 ",
           }}
         >
           <FontAwesomeIcon
