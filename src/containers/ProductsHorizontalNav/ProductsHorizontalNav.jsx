@@ -130,6 +130,7 @@ export default function ProductHorizontalNav({ products }) {
               colorDepthScore={matcha.colorDepth}
               weightGrams={matcha.weightGrams}
               weightOunces={matcha.weightOunce}
+              flavors={matcha.flavor}
             />
           </div>
         ))}

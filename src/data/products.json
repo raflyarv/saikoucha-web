@@ -23,8 +23,6 @@
     "matchaName": "Koku",
     "shortDescription": "Culinary Grade Matcha from Shizuoka ",
     "productImages": [
-      "/assets/matcha/koku/product.png",
-      "/assets/matcha/koku/product-2.jpg",
       "/assets/matcha/koku/product-3.png",
       "/assets/matcha/koku/product-4.png"
     ],
@@ -34,7 +32,7 @@
     "umamiScore": 1,
     "bitternessScore": 4,
     "colorDepth": 5,
-    "flavor": ["Seaweed", "Chestnut", "Kombucha"],
+    "flavor": ["Bold", "Bitter", "Bright"],
     "shopeeLink": "https://id.shp.ee/HndhG1k"
   },
   {
@@ -43,7 +41,6 @@
     "shortDescription": " Ceremonial Grade Roasted Green Tea from Shizuoka",
     "productImages": [
       "/assets/matcha/kaori/product.png",
-      "/assets/matcha/kaori/product-2.jpg",
       "/assets/matcha/kaori/product-3.png",
       "/assets/matcha/kaori/product-4.png"
     ],
@@ -53,7 +50,7 @@
     "umamiScore": 4,
     "bitternessScore": 2,
     "colorDepth": 5,
-    "flavor": ["Seaweed", "Chestnut", "Kombucha"],
+    "flavor": ["Nutty", "Coffee", "Umami"],
     "shopeeLink": "https://id.shp.ee/hw6P7UU"
   }
 ]

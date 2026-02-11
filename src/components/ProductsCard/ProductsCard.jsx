@@ -14,6 +14,7 @@ export default function ProductsCard({
   colorDepthScore,
   weightGrams,
   weightOunces,
+  flavors,
 }) {
   const getSavedCode = localStorage.getItem("language");
   const { t } = useTranslation();
@@ -183,7 +184,7 @@ export default function ProductsCard({
                   textDecoration: "underline",
                 }}
               >
-                Seaweed, Chestnut, Kombucha{" "}
+                {flavors.join(", ")}
               </span>
             </p>
           </div>

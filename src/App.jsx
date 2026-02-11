@@ -383,17 +383,43 @@ function App() {
                 }}
               />
             </div>
-            <img
-              alt="Photo 2"
-              src="/assets/events/event-3.jpg"
-              loading="lazy"
-              width={"50%"}
-              height={"100%"}
+            <div
               style={{
-                objectFit: "cover",
-                borderRadius: "0 var(--space-md) var(--space-md) 0 ",
+                width: "50%",
+                display: "flex",
+                flexDirection: "column",
+                rowGap: "var(--space-sm)",
+                alignItems: "stretch",
+                minHeight: 0,
               }}
-            />
+            >
+              <img
+                alt="Photo 3"
+                src="/assets/events/event-3.jpg"
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  minHeight: 0,
+
+                  flex: 1,
+                  objectFit: "cover",
+                  borderRadius: "0 var(--space-md) 0 0",
+                }}
+              />
+
+              <img
+                alt="Photo 4"
+                src="/assets/events/event-4.png"
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  minHeight: 0,
+                  flex: 1,
+                  objectFit: "cover",
+                  borderRadius: "0 0 0 var(--space-md)",
+                }}
+              />
+            </div>
           </div>
         </a>
       </section>

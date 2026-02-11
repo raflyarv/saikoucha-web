@@ -52,9 +52,9 @@ export default function LanguageSwitcher() {
   return (
     <div
       style={{
-        display: "flex",
+        display: "inline-flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "flex-end",
         position: "relative",
       }}
       ref={ref}
