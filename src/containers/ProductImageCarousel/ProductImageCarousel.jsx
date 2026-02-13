@@ -5,6 +5,7 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 export default function ProductImageCarousel({ images, productName }) {
   const containerRef = useRef(null);
   const rafRef = useRef(null);
+  const isProgrammatic = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const total = images.length;
@@ -20,16 +21,17 @@ export default function ProductImageCarousel({ images, productName }) {
     if (!container) return;
 
     const imageWidth = getImageWidth();
-    if (!imageWidth) return;
-
     const containerWidth = container.offsetWidth;
 
     const scrollLeft = index * imageWidth + imageWidth / 2 - containerWidth / 2;
 
-    container.scrollTo({
-      left: scrollLeft,
-      behavior: "smooth",
-    });
+    isProgrammatic.current = true;
+
+    container.scrollLeft = scrollLeft;
+
+    setTimeout(() => {
+      isProgrammatic.current = false;
+    }, 400); // match smooth duration
 
     setActiveIndex(index);
   };
@@ -67,6 +69,7 @@ export default function ProductImageCarousel({ images, productName }) {
           display: "flex",
           overflowX: "scroll",
           scrollSnapType: "x mandatory",
+          scrollBehavior: "smooth",
           marginBottom: "var(--space-md)",
         }}
       >
@@ -75,7 +78,7 @@ export default function ProductImageCarousel({ images, productName }) {
             key={`${productName}-${i}`}
             src={img}
             alt={`${productName}-${i}`}
-            loading="lazy"
+            loading="eager"
             style={{
               width: "100%",
               height: "350px",
